@@ -1,0 +1,392 @@
+<!doctype html>
+
+<html>
+
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="tufficon.jpg" />
+<style>@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700|Noto+Serif+JP:400,700&display=swap');</style>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="index.js"></script>
+<title> Internship Bible </title>
+</head>
+
+
+<body>
+
+<!-- Beginning of Nav Bar -->
+
+<header> 
+<h1 class="headline"> Tufts Health Plan Internship Guide </h1>
+</header>
+
+<nav>
+  <ul>
+    <li>
+        <a href="index.html">Home</a>
+    </li>
+    <li>
+        <a href="registration.html">Registration Process</a>
+    </li>
+    <li>
+        <a href="servicenowjira.html">ServiceNow & JIRA</a>
+    </li>
+    <li>
+        <a href="billing.html">Billing</a>
+    </li>
+    <li>
+        <a href="otherinfo.html">Other Information</a>
+    </li>
+  </ul>
+</nav>
+
+
+<!-- End of Nav Bar -->
+
+<div id="toc_container">
+<p class="toc_title">Contents</p>
+	<ul class="toc_list">
+		<li><a href="#First_Otherinfo_Point_Header">Data Load</a></li>
+		<li><a href="#Second_Otherinfo_Point_Header">EDI Reports and Reconciliation</a></li>
+		<li><a href="#Third_Otherinfo_Point_Header">Reconciliation</a></li>
+		<li><a href="#Fourth_Otherinfo_Point_Header">Connect </a></li>
+		<li><a href="#Fifth_Otherinfo_Point_Header">Axway</a></li>
+		<li><a href="#Sixth_Otherinfo_Point_Header">Traceability Log</a></li>
+		<li><a href="#Seventh_Otherinfo_Point_Header">Database Outages</a></li>
+		<li><a href="#Eighth_Otherinfo_Point_Header">Frequently Asked Questions (FAQs)</a></li>
+		<li><a href="#Nineth_Otherinfo_Point_Header">What Roles do I have access to?</a></li>
+		<li><a href="#Tenth_Otherinfo_Point_Header">Tips and cheat sheet</a></li>
+		<li><a href="#Eleventh_Otherinfo_Point_Header">Glossary</a></li>
+	</ul>
+</div>
+
+<div class="back_to_top">
+<a href="otherinfo.html">Back to Top</a>
+</div>	
+
+
+<h2> Other Information </h2>
+	<h3> IS CSC Notification Form </h3>
+		<img src="img/CSC.png" alt="Billing" height="420" width="900">
+<p> When asked to work IS CSC to send a notification out you would fill out form seen above. There is a sample form in the “Intern Guide” folder in the “E-Business” drive. Replace the information there with your own. </p>
+
+
+<h2 id="First_Otherinfo_Point_Header"> Data Load </h2>
+<p>
+Check the Data Load and Data Load History each day for both MA (Beta and Prod) and RI (Beta and Prod). This is accessed through the Payor Admin role.
+			<ol>
+				<li>Click “Data Load Monitor” under Data Administration</li>
+				<li>Check the Data Load Summary</li>
+				<li>The time under “Total Load” should be higher than 0 seconds, but should not be 300 minutes or higher</li>
+				<li>Scroll down through the list. You will see colored dots on the left side next to a status message indicating if the load is complete (green), there was an error (yellow), or the files are still in progress (blue). Occasionally you will see a file with a red status indicating no records have come through.</li>
+				<li>If you see files in progress wait a few minutes to give them some time to come in. Once they come in check the Total Load time again to make sure that the time has not increased over 300.</li>
+				<li>If you see files in red, or if the Total Load is 300 minutes or higher you will notify your supervisor and if necessary, escalate the issue to H30 by opening a JIRA ticket.</li>
+				<li>In the ticket indicate which portal instance you are seeing the issue in and the date. Let them know if this is for a Total Load time issue or a no records issue. After the ticket is created add a screenshot/snippet of the DLM where the error is and add it to the ticket as a comment.</li>
+				<li>You will most often see these issues in Beta due to H30 testing the DLM. If the errors are due to testing, they will let you know.</li>
+				<li>Once the issue is resolved/ H30 has said that the load was affected by testing you can close the ticket.<li>
+			</ol>
+Production is hosted on <b>SQLCONNECT</b> and its database is <b>nsc_prod.</b> It runs its extract code to <b>NHWEXPRESS.HRPMERGE</b> server.</br></br>
+Beta is hosted on <b>TESTCONNECT</b> server, its database is <b>nsc_beta.</b> It runs its extract code to <b>X10EXPRESS</b> server.
+</p>
+<h3> Data Load Documentation </h3>
+	<img src="img/DataLoad.png" alt="Billing" height="400" width="700">
+
+
+<h2 id="Second_Otherinfo_Point_Header"> EDI Reports and Reconciliation </h2>
+<h3> Running Reports </h3>
+<p> You will need to run EDI reports each day, pulling data for the day before. There are 3 transaction types: 278, 834, and 837. Tuesday-Friday you will run each report for the previous day. For example, on Wednesday you will enter Tuesday’s date into the date field. On Monday you need to run the reports for the weekend going from Friday to Sunday. Do this for both MA and RI Production. </p>
+</br>
+<p>
+1:	In Production make sure you are in the Payor Admin role. Go to User Administration.</br>
+2:	Click “Dashboard” at the bottom of the menu that appears.
+	<img src="img/EDI1.png" alt="Billing" height="400" width="200">
+</p>
+<p> 3:	The dashboard is also referred to as the SEE. You should see this page: </p>
+	<img src="img/EDI2.png" alt="Billing" height="400" width="700">
+<p> 4:	Click the “X” to bring up a list of transaction types. Click on the type you want to run the report for: </p>
+	<img src="img/EDI3.png" alt="Billing" height="400" width="700">
+<p>
+	5:	Change the date under “When” to either the previous day (you can leave it as “Yesterday”), or if running on a Monday, the previous Friday-Sunday</br>
+	6:	If there were transactions for that date click “View” above the Transaction and Direction box, then Export when the page loads. This will send the report to the Document Manager</br>
+	7:	Files for MA will take longer than RI due to there being a higher volume for this state.</br>
+	8:	Often times running RI reports will return with “No Transactions”. When this happens, use the Snipping tool to take a selective screenshot and save it to the appropriate folder. Do this for each transaction.</br>
+	9:	After 30 minutes all reports should be loaded into the Document Manager.</br>
+	10:	In the menu bar, hover your cursor over “Data Administration” and click on “Document Manager” at the bottom of the little pop-up menu that appears.</br>
+	11:	To find your EDI reports type “smart” in the name field and hit search.</br>
+	12:	<b>This is an example of the file name for EDI reports</b> SmartExchange Transactions Report generated Mon Jun 17 081002.csv (0 KB)</br>
+	13:	Open the file in Excel. Check the state by looking at the Member ID column, then the transaction type and save the document to the appropriate folder following the naming convention below. Do this for both Excel files and screenshots.</br>
+	a.	Transaction#State Month-Day-Year</br>
+	i.	278MA 8-27-2019</br>
+	b.	For a weekend report: Transaction#State Month-Friday-Sunday-Year</br>
+	i.	834RI 6-7-19--6-9-19
+</p>
+
+<h2 id="Third_Otherinfo_Point_Header"> Reconciliation </h2>
+<p>
+One daily task you will be working on is checking the Axway logs against the reports that come into Connect. You can access the Axway system through Firefox with this link:<b> https://twsts3p:8444/coreadmin/auth/login.jspx.</b> Copy and paste, then save to your favorites for best results.</br></br>
+<b>Username: admin </br></br>
+Password: admin201%</b></br></br>
+Resources needed for this task: Axway, Connect (Production), Notepad++ and Excel. You will need to create a ServiceNow request for access to Notepad++.</br></br>
+There will be an Excel spreadsheet with transaction types, dates, and count for each type. Do each transaction type individually based on yesterday’s date. For example, if today is 5/2/19, when searching for the logs you need to enter 5/1/19 into the date field.</br></br>
+</p>
+<h2 id="Fourth_Otherinfo_Point_Header"> Connect </h2>
+<p>
+	<ol>
+		<li>Under “User Administration” go to the Dashboard. This is the last tab on the list. People may also refer to the Dashboard as the SEE.</li>
+		<li>Click the Transactions tab, then click Filter Results.</li>
+		<li>Apply the following filters:</li>
+		<li>Status: Success</li>
+		<li>Date: Previous day’s date or if running this task on a Monday, Friday’s date to Sunday’s.</li>
+		<li>Transaction type: 278, 834, 837</li>
+		<li>For 278 and 834, scroll to the bottom of your search results and enter this number into the appropriate section of the Excel spreadsheet</li>
+		<li>For 837 files, organize by date/time. Check files before 5pm for that date. Click N/A or file name to get to the success list.</li>
+		<li>Enter the number of successful transactions into Excel.</li>
+	</ol>
+</p>
+	
+<h2 id="Fifth_Otherinfo_Point_Header"> Axway </h2>
+<p> 1:	After logging in, click File Tracking in the left side menu. </p>
+<img src="img/Axway1.png" alt="Billing" height="400" width="500">
+<p> 2:	Click Show Advanced Search at the top. </p>
+<img src="img/Axway2.png" alt="Billing" height="200" width="750">
+<p> The following should appear: </p>
+<img src="img/Axway3.png" alt="Billing" height="400" width="735">
+<p>
+4:	In the Account or Login field, enter “HealthTrio”</br>
+5:	For File, enter the transaction type you are currently working with (X12_278 for example)</br>
+a.	EDI file titles are X12_278, X12_834, X12_837</br>
+6:	Click Search, then export your results as an Excel file.</br>
+7:	Copy and paste the Axway log to the Axway log sheet in the Traceability file.
+</p>
+	
+<h2 id="Sixth_Otherinfo_Point_Header"> Traceability Log </h2>	
+<p>
+Along with running and saving the EDI reports you will need to update the Traceability Log. Make sure to enter information for each individual date. To find the file look in the E-Business drive under web->Connect->Reports. The file name is Traceability System Improvement spreadsheet.xlsx </br></br>
+There are 4 spreadsheets in the Excel file: 278 Axway, 834 Axway, MA EDI, and RI EDI. 837 will be done differently. Log into both Axway and the Connect Production portal.
+</p>
+	<h3> For 278 and 834: </h3>
+
+	<ul>
+		<li>In the EDI Dashboard select the date you would like to run. Example May 3, 2019. Choose either 278 or 834 from the list of transactions.</li>
+		<li>In Axway enter “HealthTrio” into the Account or Login field and X12_278 or 834 into the File field. Match the date to the date you have selected in Connect and click search. Export the results as an Excel file.</li>
+		<li>From the Dashboard, check the number of attempted and successful transactions</li>
+	</ul>
+
+<img src="img/Trace1.png" alt="Billing" height="400" width="700">
+<ul>
+<li> The right side, “Volume”, shows the number of transactions attempted. The left side chart shows how many were successful and how many failed. </li>
+<li> In the Traceability log select either MA EDI or RI EDI depending on which state you’re logged into in Connect. Enter the number of attempts/the number of successful transactions under column C “SEE Count (Total attempted/Total Successful)” </li>
+</ul>
+<img src="img/Trace2.png" alt="Billing" height="400" width="700">
+
+<ul>
+<li>For Example if there were 238 files attempted but only 236 came through enter 238/236 into this field.</li>
+<li>Look at the Axway file that you just opened. Press CTRL+A then in the Ribbon under Cells, click the small arrow under Format and select Auto-fit Column Width.</li>
+<li>For 278 you’ll need to add another column before copying the spreadsheet into the log. Right click on column J, then click Insert to add a column before it.</li>
+<li>Starting at cell A2, click and drag to highlight the information. Make sure all fields with data are selected. Copy and paste into the Traceability log under the corresponding Axway spreadsheet.</li>
+<li>In the 278 spreadsheet you will see that there are cells filled in above the data you just added for the extra column you inserted. Select the last cell in this column with data entered and hover your cursor over the little green square on the bottom right of the selected cell. Click when you see the bold black + sign then hold and drag down until the column is filled for that date. These are the file names for each transaction. You do not have to do this additional step for 834.</li>
+<li>In the file you pulled from Axway make a note of how many transactions Axway sent. Scroll to the last transaction and look at the row number. Subtract 1 from this number to get the Axway count. Enter the count into the Axway Count column of the log.</li>
+</ul>
+
+
+<h3> For 837 </h3>
+<p>837 will work differently due to being a batch file rather than individual transactions. To find the Axway count go to the Document Manager in Connect and search for X12_837 under file name. Click on the file for the date you’ve chosen to download it and open it in Notepad++. In Notepad++ press CTRL+F to open the “find” command. Type clm* and click “Search All in Current Document”. The number of results that come back will be your Axway count for 837. Enter this information into the Traceability log. To get the SEE count, search for X12_837 in Axway. One file will come up in the results. Look at the last 2 numbers (Example: 154_154) and this will be the SEE Count. Enter 154/154 in the Traceability log.</p>
+
+<h2 id="Seventh_Otherinfo_Point_Header"> Database Outages </h2>
+<p> You may be asked to schedule the outgoing message for database outages in Connect. This task is done through the Payor Admin role. Make sure to select the correct state for the outage. </p>
+<p> 1:	In the menu bar hover over Configuration Administration and click Sponsor Administration underneath </p>
+<img src="img/Database1.png" alt="Billing" height="400" width="700">
+<p> 2:	On the next page click Schedule next to DB Outage Schedule </p>
+<img src="img/Database2.png" alt="Billing" height="400" width="700">
+<p> 3:	You will be brought to this page, which shows scheduled outages. Scroll to the bottom. </p>
+<img src="img/Database3.png" alt="Billing" height="400" width="800">
+<p> 4:	At the bottom of the list you’ll see an option to create a new outage message. Enter the date of the outage, the time it will start, and how long it will take. The start time is in military or 24-hour format. For the length of the outage this is in percent of an hour. For example if an outage will take one hour enter 1 in the 3rd field. If the outage will last an hour and a half enter 1.5. </p>
+<img src="img/Database4.png" alt="Billing" height="200" width="700">
+<p>
+5:	Leave the Yes/No list as No. This option controls whether the outage will be considered reoccurring. </br>
+6:	In the blank box enter the reason for the outage. For example, “Scheduled Maintenance”. The system will build the message with your outage reason and the other information you provided.</br>
+7:	Read over the message and all of the information you’ve entered. Once you have verified it is correct, click add. You cannot edit the message once it is submitted.
+</p>
+
+
+<h2 id="Eighth_Otherinfo_Point_Header"> Frequently Asked Questions (FAQs) </h2>
+</br>
+<h3> My Tufts Health Provider Connect account is still pending. </h3>
+<p>
+All Tufts Health Provider Connect accounts will be pending until a completed user agreement is received via fax or mail. A completed user agreement is required for application review and confirmation. Once your account has been confirmed you will receive a confirmation email and be able to log into Tufts Health Provider Connect.</br> 
+Please send all completed user agreements via fax or mail to:</br>
+Tufts Health Plan </br>
+Attn: Web Portal Analyst </br>
+P.O. Box 9194 </br>
+Watertown, MA 02471-9194</br>
+Fax: (857)–304–6150 
+</p>
+
+<h3> How do I find my username and password? </h3>
+<p> Call HealthTrio at (857)–814–9909. </p>
+
+<h3> My account is locked? </h3>
+<p> Call Health Trio at (857)–814–9909 please have account website or an example of a member ID. </p>
+
+<h3> How do I see a list of all the users under my Tufts Health Provider Connect account?  </h3>
+<p> Under “System Admin”. </p>
+
+<h3> How do I add users? </h3>
+<p> Refer to the Add New Users and Roles Guide. </p>
+
+<h3> How can I add another tax identification number to my account? </h3>
+<p>
+To add a tax identification number to your Tufts Health Provider Connect account, please complete and return a user agreement for the additional tax identification number. </br> 
+Please send all completed user agreements via fax or mail to:</br>
+Tufts Health Plan </br>
+Attn: Web Portal Analyst</br>
+P.O. Box 9194 </br>
+Watertown, MA 02471-9194</br>
+Fax: (857)–304–6150 
+</p>
+
+<h3> How do I update the main office contact for my account? </h3>
+<p> Send in a new user agreement signed by the Officer and the new main office contact. </p>
+
+<h3> I can’t see claims/and or patients. </h3>
+<p> This is most likely an access list issue. If the provider cannot view the claim in Connect but you can that means it is an access list issue. If not there would need to be further research done. </p>
+
+<h3> How do I edit a referral/authorization? </h3>
+<p> Once a referral/authorization has been submitted via the Tufts Health Provider Connect portal it cannot be edited. To edit a referral/authorization that has been submitted please email ICT Management or contact 888-257-1985, and pick the Referral Department. </p>
+
+<h3> How do I edit a claim? </h3>
+<p> Once a claim has been submitted via the Tufts Health Provider Connect portal it cannot be edited. To edit a claim please contact Provider Services or the Claims Department. </p>
+
+<h3> How do I delete a claim? </h3>
+<p> Once a claim is submitted into the portal there is no way to delete a claim. </p>
+
+
+<h2 id="Nineth_Otherinfo_Point_Header"> What Roles do I have access to? </h2>
+<h3> MA Connect Roles </h3>
+<img src="img/Roles1.png" alt="Billing" height="700" width="700">
+<img src="img/Roles2.png" alt="Billing" height="750" width="700">
+<img src="img/Roles3.png" alt="Billing" height="400" width="700">
+<h3> RI Connect Roles </h3>
+<img src="img/Roles4.png" alt="Billing" height="400" width="700">
+<img src="img/Roles5.png" alt="Billing" height="700" width="700">
+
+
+<h2 id="Tenth_Otherinfo_Point_Header"> Tips and cheat sheet </h2
+	<ul>
+		<li> For the Intern is a folder I made with some useful documents/links that helped me during internship.  </li>
+		<li> Cheat Sheet is in the E-business shared drive-Folder Name- Cheat Sheet </li>
+	</ul>
+<p> Here are some quick notes you can use while going through various tickets. Copy and paste into the desired ticket to use them, using your own initials where needed. Replace (FL) with your initials. </p>
+<h3> ServiceNow </h3>
+<h4> Termination/Transfer Out tickets: </h4>
+	<ul>
+		<li> User was not found in Beta or Production Connect for MA or RI </li>
+		<li> User was found in all instances </li>
+		<li> User was only found in Production for MA </li>
+		<li> User was only found in Production for RI </li>
+		<li> User was only found in Beta for MA </li>
+		<li> User was only found in Beta for RI </li>
+		<li> User was found in Prod and Beta for MA </li>
+		<li> User was found in Prod and Beta for RI </li>
+		<li> User was found in Production for MA and RI  </li>
+		<li> User was found in Beta for MA and RI </li>
+		<li> User was found in Beta for MA and Prod for RI </li>
+		<li> User was found in Beta for RI and Prod for MA </li>
+		<li> User was found in Production for MA and RI and Beta for MA </li>
+		<li> User was found in Production for MA and RI and Beta for RI </li>
+		<li> User was found in Production for RI and Beta for MA </li>
+		<li> User was found in Production for MA and Beta for RI </li>
+	</ul>
+<h4> Fulfillment and New Hire Tickets: </h4>
+	<ul>
+		<li> <b>First attempt comment:</b> An email has been sent to the user. This is the first attempt. On the third attempt the ticket will be closed. </li>
+		<li> <b>Second attempt comment:</b> An email has been sent to the user and their manager/supervisor. This is the second attempt. On the third attempt the ticket will be closed. </li>
+		<li> <b>Third attempt comment:</b> Ticket closed due to lack of response. </li>
+	</ul>
+<h3> JIRA </h3>
+	<ul>
+		<li> An email has been sent to PP Member Services for verification. </li>
+		<li> (Caller Name) is authorized to speak on the behalf of (Member) </li>
+		<li> (Caller Name) is not authorized to speak on the behalf of (Member) </li>
+	</ul>
+
+<h3> RightFax </h3>
+<h4> Comments: </h4>
+	<ul>
+		<li> *(FL)-not contracted </li>
+		<li> *(FL)-incomplete. wrong officer </li>
+		<li> *(FL)-incomplete. missing officer </li>
+		<li> *(FL)-complete </li>
+		</ul>
+		<h4> Fax Save Tags (Adjust the date accordingly): </h4>
+		<ul>
+		<li> _IC_M-D-YY </li>
+		<li> _NA_ M-D-YY </li>
+		<li> _ M-D-YY </li>
+		<li> _Complete_M-D-YY </li>
+		<li> _IP_M-D-YY (For in process tins. Use this to tag the fax so you can find it more easily after getting a confirmation from Edricka. </li>
+	</ul>
+
+
+<h2 id="Eleventh_Otherinfo_Point_Header"> Glossary </h2>
+	<p>
+	<b>EDI:</b> Electronic Data Interchange is an electronic communication system which provides standardized forms of data exchange.</br></br>
+
+	<b>EOP:</b> Explanation of Payment</br></br>
+
+	<b>EVS:</b> Eligibility Verification System</br></br>
+
+	<b>HIPAA:</b> Health Insurance Portability and Accountability Act</br></br>
+
+	<b>W-9:</b> Request for Taxpayer Identification Number and Certification</br></br>
+
+	<b>Tax ID:</b> 9 digit number needed to submit claims </br></br>
+
+	<b>PCP:</b> Primary Care Provider</br></br>
+
+	<b>PII:</b> Personally Identifiable Information</br></br>
+
+	<b>PHI:</b> Protected Health Information</br></br>
+
+	<b>UB04:</b> Hospital Claim</br></br>
+
+	<b>CM:</b> Change Management</br></br>
+
+	<b>CCMS:</b> Chronic Illness and Disability Payment System</br></br>
+
+	<b>CR:</b> Change Request. If you notice something that needs to be changed or updated in Connect you need to submit a CR</br></br>
+
+	<b>SR:</b> Service Request. Sent from the “Business” (Outside of the Tech/Tech Ops Department). These are internal and external tickets requesting a service or task be completed.</br></br>
+
+	<b>Incident Management:</b> Alerts appropriate parties of problem or failure, a ticket of the issue is created and steps for prevention are made</br></br>
+
+	<b>Change Management:</b> Alerts planned change, or enhancements to appropriate parties </br></br>
+
+	<b>SLA:</b> Service Level Agreement- Part of a service contract where a service is formally defined. The SLA is for submitting an incident is 24 hours from the point in time you realize it's an issue.</br></br>
+
+	<b>POA:</b> Power of Attorney. If a family member, friend, etc. requests access to a member’s information through the HealthTrio Helpdesk (JIRA) verify with the PP Member Services Team if they have a POA on file for the member. </br></br>
+
+	<b>837 File:</b> Claim file</br></br>
+
+	<b>834 File:</b> Enrollment file</br></br>
+
+	<b>SFTP:</b> SSH File Transfer Protocol</br></br>
+
+	<b>EMDEON:</b> Third Party Vendor and Clearinghouse </br></br>
+	</p>
+
+
+
+
+
+
+
+<footer> 
+Copyright 2019
+Tufts Health Plan. All Rights Reserved 
+</footer>	
+	
+
+
+</body>
+
+</html>

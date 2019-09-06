@@ -1,103 +1,231 @@
-body {
-	background-color: #FE9A2E;
-	
+html {
+	background-color: #ccc;
 }
 
-/*Nav*/
+body {
+	background-color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	width:80%;
+	max-width: 900px;
+	border: 1px solid #000;
+	padding-left: 24px;
+	padding-right: 24px;
+    font-family: 'Noto Serif JP', serif;
+	font-size: 14px;
+}
 
+
+
+/*Nav and header*/
+header {
+	width: 97.35%;
+	background-color: rgb(3, 103, 164);
+	color: #fff;
+    font-family: 'Noto Sans JP', sans-serif;
+	font-size: 18px;
+	color: #fff;
+	margin: 0 0 0 0;
+	padding: 12px 12px;;
+}
 nav {
-  width: 100%;
-  margin: 20px 0; }
+	width: 100%;
+	background-color: rgb(3, 103, 164);
+	color: #fff;
+    font-family: 'Noto Sans JP', sans-serif;
+	font-size: 12px;
+	color: #fff;
+	margin: 0 0 0 0;
+	padding: 0px 0px;;
+
+
+  }
+  
 nav ul {
   list-style: none;
-  overflow: hidden; }
+  overflow: hidden;
+  margin: 0px;
+  }
+  
 nav ul li {
   float: left;
   width: 20%; }
+
 nav ul li a {
   text-align: center;
   padding: 8px 0;
   display: block;
-  width: 100%;
-  background: #F7BE81;
-
+  width: 75%;
   }
+
+  
+  
+  
+ .nav li {
+	 display: block;
+	 transition-duration: 0.5s;
+	 
+ }
+ 
+ .nav ul li ul {
+  visibility: hidden;
+  opacity: 0;
+  position: relative;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  display: none;
+  
+}
+
+.nav ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+nav ul li ul li {
+  clear: both;
+  width: 100%;
+}
+  
+  
+  
+  
 nav ul li a,
 nav ul li a:focus,
 nav ul li a:visited,
 nav ul li a:hover,
 nav ul li a:active {
-  color: #000;
+  color: #fff;
   text-decoration: none; }
+
 nav ul li a:hover,
 nav ul li a:active {
-  background: #cdeb8e; 
+  background-color: rgb(40, 132, 180); 
   
   }
-nav ul li:first-child a {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px; }
-nav ul li:last-child a {
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px; }
-  /*END Nav*/
+
   
   /*HomePage*/
  
-.container1 {
-	background-color:#F7BE81; 
-	padding-top: 25px;
-	padding-bottom: 25px;
-	padding-left: 25px;
-	padding-right: 25px;
-	border-radius: 25px;
+
+
+/* head styles */
+
+
+h1, h2, h3 {
+    font-family: 'Noto Sans JP', sans-serif;
+	text-align: left;
+	padding-left: 16px 0px 16px 0px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-  /*END HomePage*/
-  
 h1 {
-	text-align: Center;
-	
+		font-size: 36px;
 }  
-  
+
+
 h2 {
-	 text-align: Center;
-	 
+		font-size: 28px;
  } 
  
+h2:after
+{
+    content:' ';
+    display:block;
+    border:2px solid black;
+}  
+
 h3  {
-	text-align: Center;
-	
+		font-size: 20px;
 }
  
 h4  {
-	text-align: Center;
-	
+	font-weight: 700;
+	padding-left: 16px;
 }
- 
- header {
-	 
-	background-color: #F7BE81;
- }
  
  
  footer {
-	 background-color:#F7BE81;
+	
 	 padding-top:25px;
 	 padding-bottom:25px;
 	 padding-left:50px;
 	 padding-right:50px;
  }
+ 
+ 
+ main {
+  display: flex;
+  justify-content: center;
+	
+}
+
+#p1 {
+	text-align:center;
+	font-size: 35px;
+	font-weight: bold;
+	font-family: 'Noto Sans JP', sans-serif;
+
+}
+
+
+
+.text {
+  background: url(https://media.giphy.com/media/3o6Ztb45EYezY9x9gQ/giphy.gif);
+  background-size: contain;
+  background-position: top left;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: 'Noto Sans JP', sans-serif;
+
+}
+ 
+ /* table of contents */
+ 
+ 
+ #toc_container {
+    background: #fff none repeat scroll 0 0;
+    font-family: 'Noto Sans JP', sans-serif;
+	border: 1px solid #aaa;
+    display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    padding: 20px;
+    width: 100px;
+  position: absolute;
+  left:5px;
+  top:5px;
+}
+
+.toc_title {
+    font-weight: 700;
+    text-align: center;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+	padding:5px 5px;
+	
+}
+ 
+ 
+.back_to_top {
+	font-family: 'Noto Sans JP', sans-serif;
+	bottom:0px;
+	right:0px;
+	position:fixed;
+	padding-bottom: 15px;
+	padding-right: 15px;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  

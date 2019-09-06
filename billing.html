@@ -3,21 +3,21 @@
 <html>
 
 <head>
-
 <link rel="shortcut icon" type="image/x-icon" href="tufficon.jpg" />
-
+<style>@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700|Noto+Serif+JP:400,700&display=swap');</style>
 <link rel="stylesheet" type="text/css" href="style.css">
-
 <script src="index.js"></script>
-
 <title> Internship Bible </title>
-
 </head>
 
 
 <body>
 
 <!-- Beginning of Nav Bar -->
+
+<header> 
+<h1 class="headline"> Tufts Health Plan Internship Guide </h1>
+</header>
 
 <nav>
   <ul>
@@ -42,15 +42,29 @@
 
 <!-- End of Nav Bar -->
 
-<h1> Tufts Health Plan </h1>
-<h2> Internship Guide </h2>
+<div id="toc_container">
+<p class="toc_title">Contents</p>
+<ul class="toc_list">
+  <li><a href="#First_Point_Header">Claim Status</a>
+  <ul>
+    <li><a href="#First_Billing_Sub_Point_1">Remittance Advice</a></li>
+    <li><a href="#First_Billing_Sub_Point_2">Add Claim</a></li>
+	<li><a href="#First_Billing_Sub_Point_3">ACO Specialist Tab</a></li>
+	<li><a href="#First_Billing_Sub_Point_4">MedHOK</a></li>
+  </ul>
+</li>
+<li><a href="#Second_Point_Header">Clean Up Process</a></li>
+</ul>
+</div>
 
-<h2> Billing </h2>
-<hr size ="30" color = "black">
+
+<div class="back_to_top">
+<a href="billing.html">Back to Top</a>
+</div>	
 
 
-<h2> Billing </h2>
-	<h3> Claims Status </h3>
+<h1> Billing </h1>
+	<h2 id="First_Point_Header"> Claims Status </h2>
 		<img src="img/Billing1.png" alt="Billing" height="400" width="700">
 <p> You can search for single professional/medical claims. You can search by the claim number itself and the date of service range. If there is no claim number you must search by the member ID and the date of service range. Claim status will show whether a claim is <b>submitted, pending/processing, finalized paid, or finalized denied</b> </p>
 	<ol>
@@ -64,7 +78,7 @@
 <p> After you have added the right TIN (tax ID), hospital ID, or provider ID, ask the provider to logout and log back in. Ask them to search the claim again and they will be able to find it. </p>
 	<img src="img/Billing2.png" alt="Billing" height="400" width="700">
 
-<h3> Remittance Advice </h3>
+<h3 id="First_Billing_Sub_Point_1"> Remittance Advice </h3>
 <p>
 The remittance advice tab is where a provider can search for their EOP (explanation of payment.) To do this they must select only one search option out of the several options provided. The most common search options are:
 	<ul>
@@ -75,7 +89,7 @@ The remittance advice tab is where a provider can search for their EOP (explanat
 This option has a drop down list for check number or claim number. Check number must have leading zeros preceding the check number itself.
 </p>
 
-<h3> Add Claim </h3>
+<h3 id="First_Billing_Sub_Point_2"> Add Claim </h3>
 <p>
 Provider must go to the Add Claim tab to submit a single professional/medical claim. <b>Chapter 8 of the Provider Manual</b> explains the process in detail.</br>
 Here are 3 pages a provider must get through before the claim can be submitted on Connect: <b>Create Professional Service Claim, Add Service</b>, and finally <b>Claim Summary.</b></br></br>
@@ -85,7 +99,7 @@ Once on the Claim Summary page, the provider can view all the claim information.
 Walking a provider through submitting a claim, finding a claim, or searching for an EOP are regular occurrences. Connect can <b>only</b> submit <b>professional/medical</b> claims; therefore if a provider needs access to submit batch or hospital claims refer them to an EDI specialist or analyst. If a provider needs to add an affiliate TIN, they must fax in a <b>User Agreement</b> for every TIN they wish to add. To submit a claim a provider must have the following roles in Connect: Office Manager, MD/Clinician, or Billing. The provider should go to the left hand column in the office management section and choose the claims link under eligibility. As the web portal intern you will have the payor admin role and the claims link will be located in the consumer services section.
 </p>
 
-<h3> ACO Specialist Tab </h3>
+<h3 id="First_Billing_Sub_Point_3"> ACO Specialist Tab </h3>
 <p>
  For the ACO roles the office manager needs to assign the role to the user. To access the role, the user needs to select this role or change to this role in Connect to use it. There are 4 ACO referral roles.
 	<ul>
@@ -101,22 +115,22 @@ Note: There is NOT an MCO referral role as referrals are not needed for Together
 The referral form itself may have some minor differences but for the most part they are the same. The CHA referral form is still driven by three primary TINS whereby the CHA ACO referral form is by product/network. The regular CHA referral BRD is in Connections. 
 </p>
 
-<h3> MedHOK </h3>
+<h3 id="First_Billing_Sub_Point_4"> MedHOK </h3>
 <p> MedHOK portal calls are to be taken by Provider Services to be triaged. Provider Services has support documentation to help answer provider questions regarding the MedHOK portal (Q&A’s). However, when there is a technical issue with the portal, Provider Services needs to open a ticket with the THP Help Desk and assign the ticket to the CSTG (Clinical Services Tech Group) to have the issue investigated by the vendor (MedHOK). Call back to the provider – to be handled by the Provider Relations team as they own the provider outreach. </p>
 
-<h3> Clean Up Process </h3>
+<h2 id="Second_Point_Header"> Clean Up Process </h2>
 <p> An important process is consolidating company IDs, TINs, and access lists. To consolidate company IDs, you need to go to System Admin after logging into the Connect system. Once you are in System Admin, search for the organization name and consolidate the company IDs and move them to the company ID that is under the MOC (Main Office Contact) who has the role of an Office Manager. <b>*You can only transfer two provider accounts at a time.</b> A User must be transferred first before a Main Office Contact can be transferred. </p>
 
-<h4> Bad Access List </h4>
-	<img src="img/AList1.png" alt="Billing" height="400" width="700">
-<h4> Good Access List </h4>
-	<img src="img/AList2.png" alt="Billing" height="400" width="700">
+<h3> Bad Access List </h3>
+	<img src="img/AList1.png" alt="Billing" height="450" width="800">
+<h3> Good Access List </h3>
+	<img src="img/AList2.png" alt="Billing" height="200" width="800">
 <p> 
 An important part of your job is cleaning up/consolidating company IDs and TINs (Tax Identification Number) in Connect. This will make it easier for you and the provider. Above is an example of what a “bad” Access List looks like and what a “good” Access List looks like. Our goal is to make sure every Access List looks like the Good Access List.</br></br>
 Now the first step in the process is to get the New User Agreement signed by the Main Office Contact. Look for the TIN in Access List Manager and search by “TIN-Practice”
 </p>
 	<img src="img/AList3.png" alt="Billing" height="400" width="700">
-	<img src="img/AList4.png" alt="Billing" height="400" width="700">
+	<img src="img/AList4.png" alt="Billing" height="400" width="800">
 <p>
 After searching for the Tax ID Number under “TIN-Practice” you will be prompted to the Access List Manager screen.</br></br>
 If an Access List looks like this, then you know that this access list needs some cleaning. This means that this Tax ID Number has multiple Access Lists.</br></br>	
@@ -124,39 +138,43 @@ If an Access List looks like this, then you know that this access list needs som
 Now with the Main Office Contact or the Administrator of the Tax ID on the phone you want to go through all the users, and ask the MOC which users are still in the organizations and which are not, and you want to go ahead, and remove the users that are no longer with the organization by clicking “Modify” and clicking “Remove” on the User Role Maintenance screen.</br></br> 
 <b>*All the users must be deleted first before a Main Office Contact can be deleted.</b>
 </p>
-	<img src="img/AList5.png" alt="Billing" height="400" width="700">
-	<img src="img/AList6.png" alt="Billing" height="400" width="700">
+	<img src="img/AList5.png" alt="Billing" height="300" width="500">
+	<img src="img/AList6.png" alt="Billing" height="300" width="800">
 <p>
 Once you remove the users that are no longer within the organization, you want to transfer all the users under the same Company ID. You can refer to page 39 for assistance with transferring by Company ID. You will transfer the users under the Company ID of the Main Office Contact.</br></br>
 Now that you deleted all the users that are no longer within the organization, and you transferred everyone under one Company ID, you want to transfer the users under one Access List. You always want to transfer to the Access List with the most users; this will make the process much simpler.</br></br>
 To transfer a user under a new Access List, search for the user’s last name on the User Maintenance screen under System Admin
 </p>
-	<img src="img/AList7.png" alt="Billing" height="400" width="700">
+	<img src="img/AList7.png" alt="Billing" height="300" width="700">
 <p> After you select the user you will be prompt to the User Role Maintenance screen, and click “Add”. </p>
-	<img src="img/AList8.png" alt="Billing" height="400" width="700">
+	<img src="img/AList8.png" alt="Billing" height="100" width="600">
 <p> You will then be prompt to the “User Role Selection” screen. This user’s role was THPP Office Manager, you will assign them the same role BUT they will be under the Access List ID which you are transferring all the users under </p>
 	<img src="img/AList9.png" alt="Billing" height="400" width="700">
-	<img src="img/AList10.png" alt="Billing" height="400" width="700">
+	<img src="img/AList10.png" alt="Billing" height="300" width="750">
 <p> After transferring your user under the new Entity List, you want to remove their access from the old list. </p>
-	<img src="img/AList11.png" alt="Billing" height="400" width="700">
+	<img src="img/AList11.png" alt="Billing" height="200" width="700">
 <p> Once you remove the user from the old Access List, you can see that they are now under the new Access List and what you want to do now is remove the old access list.  </p>
-	<img src="img/AList12.png" alt="Billing" height="400" width="700">
+	<img src="img/AList12.png" alt="Billing" height="400" width="750">
 <p> You can see that the Access List contacts have no confirmed users, no pending users, and no total users. You can now delete this access list by clicking the bubble and clicking remove </p>
-	<img src="img/AList13.png" alt="Billing" height="400" width="700">
+	<img src="img/AList13.png" alt="Billing" height="400" width="720">
 <p> You will be prompted to the Verification screen. Click “Yes” </p>
-	<img src="img/AList14.png" alt="Billing" height="400" width="700">
+	<img src="img/AList14.png" alt="Billing" height="200" width="500">
 <p> Now when you go back to the “Access List Manager” window, you can see that the user was transferred to the new Access List, and the old Access List was removed.  </p>
-	<img src="img/AList15.png" alt="Billing" height="400" width="700">
+	<img src="img/AList15.png" alt="Billing" height="200" width="700">
 <b><p>Transfer by Company ID</p></b>
-	<img src="img/AList16.png" alt="Billing" height="400" width="700">
-	<img src="img/AList17.png" alt="Billing" height="400" width="700">
-	<img src="img/AList18.png" alt="Billing" height="400" width="700">
+	<img src="img/AList16.png" alt="Billing" height="200" width="700">
+	<img src="img/AList17.png" alt="Billing" height="350" width="700">
+	<img src="img/AList18.png" alt="Billing" height="300" width="700">
 	<img src="img/AList19.png" alt="Billing" height="400" width="700">
-	<img src="img/AList20.png" alt="Billing" height="400" width="700">
+	<img src="img/AList20.png" alt="Billing" height="200" width="700">
 	
 	
 
-
+<footer> 
+Copyright 2019
+Tufts Health Plan. All Rights Reserved 
+</footer>	
+	
 
 </body>
 
